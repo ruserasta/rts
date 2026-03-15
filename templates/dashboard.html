@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Football Analytics Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dark-bg">
+  <header>
+    <h1>Football Probability Analysis</h1>
+    <div>
+      <span>{{ user.email }}</span>
+      <a class="btn-link" href="{{ url_for('logout') }}">Logout</a>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="card">
+      <h2>Run Match Analysis</h2>
+      <div class="form-grid">
+        <label>League</label>
+        <select id="leagueSelect"></select>
+        <label>Home Team</label>
+        <select id="homeTeam"></select>
+        <label>Away Team</label>
+        <select id="awayTeam"></select>
+        <button id="analyzeBtn">Analyze Match</button>
+      </div>
+      <p id="status"></p>
+    </section>
+
+    <section class="card">
+      <h2>Outcome Probabilities</h2>
+      <canvas id="outcomeChart"></canvas>
+      <h3>Expected Goals (xG approximation)</h3>
+      <canvas id="xgChart"></canvas>
+    </section>
+
+    <section class="card wide">
+      <h2>Most Likely Exact Scores</h2>
+      <table>
+        <thead><tr><th>Score</th><th>Probability</th></tr></thead>
+        <tbody id="scoreTable"></tbody>
+      </table>
+    </section>
+
+    <section class="card wide">
+      <h2>Prediction History</h2>
+      <table>
+        <thead><tr><th>Date</th><th>Match</th><th>1X2</th><th>xG</th></tr></thead>
+        <tbody id="historyTable"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
