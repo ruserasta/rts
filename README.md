@@ -68,3 +68,8 @@ After creating auth users, insert matching rows in `public.profiles` (id must eq
 - Add forms, table filtering, pagination, and write paths per module.
 - Enable drag/drop calendar and kanban workflows.
 - Add reports export actions and notifications.
+
+
+## Current Readiness
+- ✅ Usable internal MVP shell with working Supabase login, protected routes, dashboard metrics, and interactive module views (clients/campaigns/tasks/crm/budgets/capacity/reports).
+- 🚧 Still needed for production readiness: persistent CRUD wired to Supabase tables, file uploads, notifications, and automated tests.

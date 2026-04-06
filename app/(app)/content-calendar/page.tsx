@@ -1,6 +1,12 @@
 import { ModulePage } from "@/components/layout/module-page";
-import { modulePlaceholder } from "@/lib/data/mock-data";
+import { ContentList } from "@/components/modules/content-list";
 
 export default function ContentCalendarPage() {
-  return <ModulePage title="Content Calendar" description={modulePlaceholder.content} />;
+  return (
+    <ModulePage title="Content Calendar" description="Content production queue with platform and approval status tracking.">
+      <div className="mt-4">
+        <ContentList />
+      </div>
+    </ModulePage>
+  );
 }
