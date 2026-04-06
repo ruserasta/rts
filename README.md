@@ -36,6 +36,24 @@ npm run dev
 2. Run `supabase/schema.sql` in SQL editor.
 3. Run `supabase/seed.sql` for initial data.
 
+## Test Users (Auth)
+`seed.sql` inserts business/domain data but **does not create Supabase Auth users**.
+Create these users from **Supabase Dashboard → Authentication → Users**:
+
+- **Admin / Manager (primary test login):** `manager1@cakgroup.com`
+- Recommended test password for all seeded users: `CakGroup!2026`
+
+Suggested users to create:
+- manager1@cakgroup.com (manager)
+- am1@cakgroup.com (account manager)
+- am2@cakgroup.com (account manager)
+- designer1@cakgroup.com (graphic designer)
+- designer2@cakgroup.com (graphic designer)
+- video1@cakgroup.com (video editor)
+- photo1@cakgroup.com (photographer)
+
+After creating auth users, insert matching rows in `public.profiles` (id must equal `auth.users.id`) and assign each `role_id` from `public.roles`.
+
 ## MVP Coverage
 - Auth screen + middleware route protection scaffold
 - Role permission map and module navigation

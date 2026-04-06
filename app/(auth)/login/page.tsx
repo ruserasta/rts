@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { testCredentials } from "@/lib/data/mock-data";
 
 export default function LoginPage() {
   return (
@@ -12,6 +13,9 @@ export default function LoginPage() {
           <input className="w-full rounded-lg border border-border bg-muted px-3 py-2 text-sm" placeholder="Password" type="password" />
           <Button className="w-full" type="submit">Sign in</Button>
         </form>
+        <p className="mt-4 text-xs text-muted-foreground">
+          Test admin: <span className="text-foreground">{testCredentials.adminEmail}</span> · Password: <span className="text-foreground">{testCredentials.defaultPassword}</span>
+        </p>
       </div>
     </main>
   );

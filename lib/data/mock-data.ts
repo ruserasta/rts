@@ -73,3 +73,9 @@ export const modulePlaceholder = {
   weekly: "Plan weekly priorities and blockers tied to campaigns and tasks.",
   reports: "Export-friendly operational and performance analytics views."
 };
+
+
+export const testCredentials = {
+  adminEmail: "manager1@cakgroup.com",
+  defaultPassword: "CakGroup!2026"
+};
