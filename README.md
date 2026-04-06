@@ -70,6 +70,14 @@ After creating auth users, insert matching rows in `public.profiles` (id must eq
 - Add reports export actions and notifications.
 
 
+
+## Current Implemented Workflows
+- Working login + route protection flow.
+- Clients module now supports:
+  - server-side loading from Supabase (with mock fallback)
+  - add-client server action with permission checks (manager/account manager)
+  - filter/search table view with empty state
+
 ## Current Readiness
 - ✅ Usable internal MVP shell with working Supabase login, protected routes, dashboard metrics, and interactive module views (clients/campaigns/tasks/crm/budgets/capacity/reports).
 - 🚧 Still needed for production readiness: persistent CRUD wired to Supabase tables, file uploads, notifications, and automated tests.

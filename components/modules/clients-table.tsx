@@ -1,20 +1,20 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { clientsData } from "@/lib/data/agency-data";
+import type { ClientRecord } from "@/lib/types/domain";
 
-export function ClientsTable() {
+export function ClientsTable({ rows: inputRows }: { rows: ClientRecord[] }) {
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState("all");
 
   const rows = useMemo(
     () =>
-      clientsData.filter((client) => {
+      inputRows.filter((client) => {
         const bySearch = client.name.toLowerCase().includes(query.toLowerCase()) || client.industry.toLowerCase().includes(query.toLowerCase());
         const byStatus = status === "all" || client.status === status;
         return bySearch && byStatus;
       }),
-    [query, status]
+    [query, status, inputRows]
   );
 
   return (
@@ -55,6 +55,13 @@ export function ClientsTable() {
                 </td>
               </tr>
             ))}
+            {rows.length === 0 && (
+              <tr>
+                <td className="px-3 py-6 text-center text-xs text-muted-foreground" colSpan={6}>
+                  No clients match the current filters.
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
