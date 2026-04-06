@@ -77,6 +77,10 @@ After creating auth users, insert matching rows in `public.profiles` (id must eq
   - server-side loading from Supabase (with mock fallback)
   - add-client server action with permission checks (manager/account manager)
   - filter/search table view with empty state
+- Campaigns module now supports:
+  - server-side loading from Supabase (with mock fallback)
+  - add-campaign server action with permission checks (manager/account manager)
+  - status filtering and overspend-aware cards
 
 ## Current Readiness
 - ✅ Usable internal MVP shell with working Supabase login, protected routes, dashboard metrics, and interactive module views (clients/campaigns/tasks/crm/budgets/capacity/reports).

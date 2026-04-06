@@ -1,14 +1,15 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { campaignsData, getClientName } from "@/lib/data/agency-data";
+import { getClientName } from "@/lib/data/agency-data";
+import type { CampaignRecord } from "@/lib/types/domain";
 
-export function CampaignsTable() {
+export function CampaignsTable({ rows: inputRows }: { rows: CampaignRecord[] }) {
   const [status, setStatus] = useState("all");
 
   const rows = useMemo(
-    () => campaignsData.filter((item) => status === "all" || item.status === status),
-    [status]
+    () => inputRows.filter((item) => status === "all" || item.status === status),
+    [status, inputRows]
   );
 
   return (
@@ -36,6 +37,7 @@ export function CampaignsTable() {
             </div>
           );
         })}
+        {rows.length === 0 && <p className="text-xs text-muted-foreground">No campaigns found for selected status.</p>}
       </div>
     </div>
   );
